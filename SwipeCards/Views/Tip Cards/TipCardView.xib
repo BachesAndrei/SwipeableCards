@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="d8Q-PD-gEj" customClass="TipCardView" customModule="SwipeCards" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="548"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iad-65-pHf">
+                    <rect key="frame" x="0.0" y="0.0" width="395" height="468"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee9-mG-MDy">
+                            <rect key="frame" x="176.5" y="223.5" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ee9-mG-MDy" firstAttribute="centerY" secondItem="iad-65-pHf" secondAttribute="centerY" id="0gc-oP-WSm"/>
+                        <constraint firstItem="ee9-mG-MDy" firstAttribute="centerX" secondItem="iad-65-pHf" secondAttribute="centerX" id="f7x-9v-7fe"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sl8-Cb-x9S">
+                    <rect key="frame" x="0.0" y="468" width="395" height="80"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="hrs-RU-79U"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="zLi-lW-8XA"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Sl8-Cb-x9S" firstAttribute="leading" secondItem="zLi-lW-8XA" secondAttribute="leading" id="BpT-SS-z9L"/>
+                <constraint firstItem="Sl8-Cb-x9S" firstAttribute="bottom" secondItem="zLi-lW-8XA" secondAttribute="bottom" id="RMQ-ZK-epP"/>
+                <constraint firstItem="Sl8-Cb-x9S" firstAttribute="trailing" secondItem="zLi-lW-8XA" secondAttribute="trailing" id="St5-Kf-yNl"/>
+                <constraint firstItem="iad-65-pHf" firstAttribute="leading" secondItem="d8Q-PD-gEj" secondAttribute="leading" id="VF5-Lb-uX4"/>
+                <constraint firstAttribute="trailing" secondItem="iad-65-pHf" secondAttribute="trailing" id="lRJ-hi-663"/>
+                <constraint firstItem="iad-65-pHf" firstAttribute="top" secondItem="d8Q-PD-gEj" secondAttribute="top" id="qzF-PO-NsK"/>
+                <constraint firstItem="Sl8-Cb-x9S" firstAttribute="top" secondItem="iad-65-pHf" secondAttribute="bottom" id="wz9-Pe-D4a"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="bottomCard" destination="Sl8-Cb-x9S" id="46O-iQ-mS5"/>
+                <outlet property="mainCard" destination="iad-65-pHf" id="2Sf-Ho-LE3"/>
+                <outlet property="titleLabel" destination="ee9-mG-MDy" id="Xms-wx-GIB"/>
+            </connections>
+            <point key="canvasLocation" x="-187.68115942028987" y="115.84821428571428"/>
+        </view>
+    </objects>
+</document>

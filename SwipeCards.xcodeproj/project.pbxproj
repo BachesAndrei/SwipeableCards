@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE3687C125CADA7D0077084A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3687C025CADA7D0077084A /* AppDelegate.swift */; };
+		CE3687C325CADA7D0077084A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3687C225CADA7D0077084A /* SceneDelegate.swift */; };
+		CE3687C525CADA7D0077084A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3687C425CADA7D0077084A /* ViewController.swift */; };
+		CE3687C825CADA7D0077084A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3687C625CADA7D0077084A /* Main.storyboard */; };
+		CE3687CD25CADA800077084A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3687CC25CADA800077084A /* Assets.xcassets */; };
+		CE3687D025CADA800077084A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3687CE25CADA800077084A /* LaunchScreen.storyboard */; };
+		CE3687DD25CADBAC0077084A /* SwipeableCardViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3687DC25CADBAC0077084A /* SwipeableCardViewContainer.swift */; };
+		CE3687E125CADBCC0077084A /* SwipeableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3687E025CADBCC0077084A /* SwipeableCardView.swift */; };
+		CE3687E425CADC830077084A /* TipCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3687E325CADC830077084A /* TipCardView.swift */; };
+		CE3687EC25CAE2030077084A /* TipCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3687EB25CAE2030077084A /* TipCardView.xib */; };
+		CE3687F125CAE3760077084A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3687F025CAE3760077084A /* UIView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE3687BD25CADA7D0077084A /* SwipeCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE3687C025CADA7D0077084A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE3687C225CADA7D0077084A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CE3687C425CADA7D0077084A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE3687C725CADA7D0077084A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE3687CC25CADA800077084A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE3687CF25CADA800077084A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE3687D125CADA800077084A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE3687DC25CADBAC0077084A /* SwipeableCardViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardViewContainer.swift; sourceTree = "<group>"; };
+		CE3687E025CADBCC0077084A /* SwipeableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardView.swift; sourceTree = "<group>"; };
+		CE3687E325CADC830077084A /* TipCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCardView.swift; sourceTree = "<group>"; };
+		CE3687EB25CAE2030077084A /* TipCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipCardView.xib; sourceTree = "<group>"; };
+		CE3687F025CAE3760077084A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE3687BA25CADA7D0077084A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE3687B425CADA7D0077084A = {
+			isa = PBXGroup;
+			children = (
+				CE3687BF25CADA7D0077084A /* SwipeCards */,
+				CE3687BE25CADA7D0077084A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE3687BE25CADA7D0077084A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE3687BD25CADA7D0077084A /* SwipeCards.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE3687BF25CADA7D0077084A /* SwipeCards */ = {
+			isa = PBXGroup;
+			children = (
+				CE3687D125CADA800077084A /* Info.plist */,
+				CE3687C025CADA7D0077084A /* AppDelegate.swift */,
+				CE3687C225CADA7D0077084A /* SceneDelegate.swift */,
+				CE3687CC25CADA800077084A /* Assets.xcassets */,
+				CE3687EE25CAE3610077084A /* Common */,
+				CE3687D925CADB710077084A /* Storyboards */,
+				CE3687D825CADB6A0077084A /* Views */,
+			);
+			path = SwipeCards;
+			sourceTree = "<group>";
+		};
+		CE3687D825CADB6A0077084A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE3687DB25CADB910077084A /* Tip Cards */,
+				CE3687C425CADA7D0077084A /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE3687D925CADB710077084A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CE3687C625CADA7D0077084A /* Main.storyboard */,
+				CE3687CE25CADA800077084A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CE3687DB25CADB910077084A /* Tip Cards */ = {
+			isa = PBXGroup;
+			children = (
+				CE3687EA25CAE1EB0077084A /* Swipe Cards */,
+				CE3687E325CADC830077084A /* TipCardView.swift */,
+				CE3687EB25CAE2030077084A /* TipCardView.xib */,
+			);
+			path = "Tip Cards";
+			sourceTree = "<group>";
+		};
+		CE3687EA25CAE1EB0077084A /* Swipe Cards */ = {
+			isa = PBXGroup;
+			children = (
+				CE3687DC25CADBAC0077084A /* SwipeableCardViewContainer.swift */,
+				CE3687E025CADBCC0077084A /* SwipeableCardView.swift */,
+			);
+			path = "Swipe Cards";
+			sourceTree = "<group>";
+		};
+		CE3687EE25CAE3610077084A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE3687EF25CAE36C0077084A /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE3687EF25CAE36C0077084A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE3687F025CAE3760077084A /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE3687BC25CADA7D0077084A /* SwipeCards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE3687D425CADA800077084A /* Build configuration list for PBXNativeTarget "SwipeCards" */;
+			buildPhases = (
+				CE3687B925CADA7D0077084A /* Sources */,
+				CE3687BA25CADA7D0077084A /* Frameworks */,
+				CE3687BB25CADA7D0077084A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwipeCards;
+			productName = SwipeCards;
+			productReference = CE3687BD25CADA7D0077084A /* SwipeCards.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE3687B525CADA7D0077084A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					CE3687BC25CADA7D0077084A = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = CE3687B825CADA7D0077084A /* Build configuration list for PBXProject "SwipeCards" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE3687B425CADA7D0077084A;
+			productRefGroup = CE3687BE25CADA7D0077084A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE3687BC25CADA7D0077084A /* SwipeCards */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE3687BB25CADA7D0077084A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3687D025CADA800077084A /* LaunchScreen.storyboard in Resources */,
+				CE3687CD25CADA800077084A /* Assets.xcassets in Resources */,
+				CE3687EC25CAE2030077084A /* TipCardView.xib in Resources */,
+				CE3687C825CADA7D0077084A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE3687B925CADA7D0077084A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3687C525CADA7D0077084A /* ViewController.swift in Sources */,
+				CE3687E425CADC830077084A /* TipCardView.swift in Sources */,
+				CE3687E125CADBCC0077084A /* SwipeableCardView.swift in Sources */,
+				CE3687F125CAE3760077084A /* UIView.swift in Sources */,
+				CE3687C125CADA7D0077084A /* AppDelegate.swift in Sources */,
+				CE3687DD25CADBAC0077084A /* SwipeableCardViewContainer.swift in Sources */,
+				CE3687C325CADA7D0077084A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CE3687C625CADA7D0077084A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE3687C725CADA7D0077084A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE3687CE25CADA800077084A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE3687CF25CADA800077084A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE3687D225CADA800077084A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CE3687D325CADA800077084A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE3687D525CADA800077084A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37UC87966C;
+				INFOPLIST_FILE = SwipeCards/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.andreiBaches.SwipeCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE3687D625CADA800077084A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37UC87966C;
+				INFOPLIST_FILE = SwipeCards/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.andreiBaches.SwipeCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE3687B825CADA7D0077084A /* Build configuration list for PBXProject "SwipeCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE3687D225CADA800077084A /* Debug */,
+				CE3687D325CADA800077084A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE3687D425CADA800077084A /* Build configuration list for PBXNativeTarget "SwipeCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE3687D525CADA800077084A /* Debug */,
+				CE3687D625CADA800077084A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE3687B525CADA7D0077084A /* Project object */;
+}
