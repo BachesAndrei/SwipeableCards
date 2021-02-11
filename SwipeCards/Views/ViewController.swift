@@ -55,11 +55,11 @@ extension ViewController: SwipeableViewContainerDelegate {
         //tapped card
     }
     
-    func didSelectTip() {
+    func didSwipeUp() {
         //swipe down
     }
     
-    func didRemoveTip() {
+    func didSwipeDown() {
         //swipe up
     }
     

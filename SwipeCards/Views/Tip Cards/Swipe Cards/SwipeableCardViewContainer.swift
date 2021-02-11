@@ -15,8 +15,8 @@ protocol SwipeableViewDelegate: class {
 
 protocol SwipeableViewContainerDelegate {
     func didTapTipCard()
-    func didSelectTip()
-    func didRemoveTip()
+    func didSwipeUp()
+    func didSwipeDown()
     func didEmptyTips(isEmpty: Bool)
 }
 
@@ -50,29 +50,46 @@ protocol SwipeableCardViewDataSource: class {
 }
 
 class SwipeableCardViewContainer: UIView, SwipeableViewDelegate {
+
+    //MARK: - Configuration
     
+    ///Inset difference between two cards stacked one on top of each other
     static let horizontalInset: CGFloat = 30.0
+    
+    ///Scale difference between two cards stacked on top of each other
     static let scaleFactor: CGFloat = 0.13
+    
+    ///Maximum number of cards that are visible in the stack
+    static let numberOfVisibleCards: Int = 3
+    
+
+    //MARK: - Variables
+    
+    ///All cards that will be displayed inside the container
+    private var cardViews: [SwipeableCardView] = []
+    
+    ///The currently displayed cards inside the container
+    private var visibleCardViews: [SwipeableCardView] {
+        return subviews as? [SwipeableCardView] ?? []
+    }
+    
+    ///The number of cards that remain to be displayed inside the container after the user swipes the visible ones
+    private var remainingCards: Int = 0
+    
+    
+    ///The card on top of the stack displayed inside the container
+    private var topCard: SwipeableCardView? {
+        get {
+            return visibleCardViews.last
+        }
+    }
     
     var dataSource: SwipeableCardViewDataSource?
     
     var delegate: SwipeableViewContainerDelegate?
     
-    private var cardViews: [SwipeableCardView] = []
     
-    private var visibleCardViews: [SwipeableCardView] {
-        return subviews as? [SwipeableCardView] ?? []
-    }
-    
-    fileprivate var remainingCards: Int = 0
-    
-    static let numberOfVisibleCards: Int = 3
-    
-    var topCard: SwipeableCardView? {
-        get {
-            return visibleCardViews.last
-        }
-    }
+    //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -87,12 +104,15 @@ class SwipeableCardViewContainer: UIView, SwipeableViewDelegate {
         
         self.delegate?.didEmptyTips(isEmpty: (visibleCardViews.count == 0))
     }
+
+    //MARK: - Setup
     
     /// Reloads the data used to layout card views in the
     /// card stack. Removes all existing card views and
     /// calls the dataSource to layout new card views.
     func reloadData() {
         removeAllCardViews()
+        
         guard let dataSource = dataSource else {
             return
         }
@@ -107,6 +127,12 @@ class SwipeableCardViewContainer: UIView, SwipeableViewDelegate {
         setNeedsLayout()
     }
     
+    
+    ///Sets the frame of the card and inserts it in the stack of cards that are displayed.
+    ///
+    /// - Parameters:
+    ///   - cardView: card view to be added inside the stack
+    ///   - index: the new index of the card, used to apply horizontal and vertical insets
     private func addCardView(cardView: SwipeableCardView, atIndex index: Int) {
         cardView.containerDelegate = self
         
@@ -116,6 +142,8 @@ class SwipeableCardViewContainer: UIView, SwipeableViewDelegate {
         remainingCards -= 1
     }
     
+    
+    ///Removes all visible cards from the stack and clears the cached cards data
     private func removeAllCardViews() {
         for cardView in visibleCardViews {
             cardView.removeFromSuperview()
@@ -155,7 +183,11 @@ class SwipeableCardViewContainer: UIView, SwipeableViewDelegate {
         cardView.frame = cardViewFrame
     }
     
-    
+    /// Sets the new position of a card view provided for a given index.
+    ///
+    /// - Parameters:
+    ///   - cardView: card view to update position on
+    ///   - index: the new index of the card, used to apply horizontal and vertical insets
     func bringForward(_ cardView: SwipeableCardView, atIndex index: Int) {
         let horizontalInset = CGFloat(index) * SwipeableCardViewContainer.horizontalInset
         let scale = 1.0 - CGFloat(index) * SwipeableCardViewContainer.scaleFactor
@@ -186,10 +218,9 @@ extension SwipeableCardViewContainer {
         }
         
         if direction == .down {
-            //add to betslip
-            delegate?.didSelectTip()
+            delegate?.didSwipeUp()
         }else {
-            delegate?.didRemoveTip()
+            delegate?.didSwipeDown()
         }
         
         // Remove swiped card

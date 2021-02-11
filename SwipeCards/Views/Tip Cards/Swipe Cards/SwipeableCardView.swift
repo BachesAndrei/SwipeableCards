@@ -9,14 +9,12 @@ import UIKit
 
 class SwipeableCardView: UIView {
     
-    // MARK: Gesture Recognizer
-    private var panGestureRecognizer: UIPanGestureRecognizer?
-    private var tapGestureRecognizer: UITapGestureRecognizer?
+    // MARK: Configuration
     
-    // MARK: Drag Animation Settings
+    ///Maximum rotation angle to be applied to a card when the user swipes it, where 0 = no rotation and 1 = full rotation
     static var maximumRotation: CGFloat = 0.6
-    
-    // MARK: Card Reset Animation
+
+    ///Animation time when resetting the card to the default position, after the user action stops
     static var cardViewResetAnimationDuration: TimeInterval = 0.2
     
     
@@ -25,18 +23,18 @@ class SwipeableCardView: UIView {
     @IBOutlet weak var bottomCard: UIView!
     
     // MARK: Variables
-    var mainCardNewAnchorPoint: CGPoint = .zero
-    var bottomCardNewAnchorPoint: CGPoint = .zero
+    private var panGestureRecognizer: UIPanGestureRecognizer?
+    private var tapGestureRecognizer: UITapGestureRecognizer?
     
     var containerDelegate: SwipeableViewDelegate?
-    
-    var id: Int?
     
     // MARK: Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        
+        //TODO: - Remove when implementing custom design
         self.mainCard.layer.borderColor = UIColor.yellow.cgColor
         self.mainCard.layer.borderWidth = 1.0
         
@@ -71,75 +69,13 @@ class SwipeableCardView: UIView {
         })
     }
     
+    // MARK: - Tap Gesture Recognizer
+    
+    @objc private func tapRecognized(_ recognizer: UITapGestureRecognizer) {
+        self.containerDelegate?.didTap(view: self)
+    }
+    
     // MARK: - Pan Gesture Recognizer
-    
-    private func setCardNewAnchorPoint(_ gestureRecognizer: UIPanGestureRecognizer) {
-        let initialTouchPoint = gestureRecognizer.location(in: self)
-        let newAnchorPoint = CGPoint(x: initialTouchPoint.x / bounds.width, y: initialTouchPoint.y / bounds.height)
-        let oldPosition = CGPoint(x: bounds.size.width * layer.anchorPoint.x, y: bounds.size.height * layer.anchorPoint.y)
-        let newPosition = CGPoint(x: bounds.size.width * newAnchorPoint.x, y: bounds.size.height * newAnchorPoint.y)
-        layer.anchorPoint = newAnchorPoint
-        layer.position = CGPoint(x: layer.position.x - oldPosition.x + newPosition.x, y: layer.position.y - oldPosition.y + newPosition.y)
-        
-        removeAnimations()
-        layer.rasterizationScale = UIScreen.main.scale
-        layer.shouldRasterize = true
-    }
-    
-    
-    
-    private func animateSwipeUp(panGestureTranslation: CGPoint) {
-        resetBottomCardViewPosition()
-        resetMainCardViewPosition()
-        
-        let rotationStrenght = -min(panGestureTranslation.y / 360, SwipeableCardView.maximumRotation)
-        let rotationAngle = rotationStrenght * SwipeableCardView.maximumRotation
-        
-        let xTranslation = max(panGestureTranslation.y / 4, -panGestureTranslation.y / 4)
-        let yTranslation = panGestureTranslation.y * 1.5
-        
-        var transform = CATransform3DIdentity
-        transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
-        transform = CATransform3DTranslate(transform, xTranslation, yTranslation, 0)
-        
-        layer.transform = transform
-        
-        //            self.alpha = 1 - abs(panGestureTranslation.y / self.frame.height * 0.15)
-    }
-    
-    
-    private func animateSwipeDown(panGestureTranslation: CGPoint) {
-        resetCardViewPosition()
-        //        mainCard.alpha = 1 - abs(panGestureTranslation.y / self.frame.height * 0.15)
-        
-        let rotationStrenght = -min(panGestureTranslation.y / 360, SwipeableCardView.maximumRotation)
-        let rotationAngle = rotationStrenght * SwipeableCardView.maximumRotation
-        
-        let yTranslation = panGestureTranslation.y
-        
-        var transform = CATransform3DIdentity
-        transform = CATransform3DTranslate(transform, 0, yTranslation, 0)
-        transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
-        
-        bottomCard.layer.transform = transform
-        
-        animateMainCard(panGestureTranslation: panGestureTranslation)
-    }
-    
-    private func animateMainCard(panGestureTranslation: CGPoint) {
-        let rotationStrenght = -panGestureTranslation.y / 180
-        let rotationAngle = rotationStrenght * SwipeableCardView.maximumRotation
-        
-        let xTranslation = -max(panGestureTranslation.y, -panGestureTranslation.y) * 1.5
-        let yTranslation = -panGestureTranslation.y
-        
-        var transform = CATransform3DIdentity
-        transform = CATransform3DTranslate(transform, xTranslation, yTranslation, 0)
-        transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
-        
-        mainCard.layer.transform = transform
-    }
-    
     
     @objc private func panGestureRecognized(_ gestureRecognizer: UIPanGestureRecognizer) {
         let panGestureTranslation = gestureRecognizer.translation(in: self)
@@ -168,9 +104,80 @@ class SwipeableCardView: UIView {
     }
     
     
-    private func endedPanAnimation(panGestureTranslation: CGPoint) {
-        //check swipe result and call delegate?.
+    private func setCardNewAnchorPoint(_ gestureRecognizer: UIPanGestureRecognizer) {
+        let initialTouchPoint = gestureRecognizer.location(in: self)
+        let newAnchorPoint = CGPoint(x: initialTouchPoint.x / bounds.width, y: initialTouchPoint.y / bounds.height)
+        let oldPosition = CGPoint(x: bounds.size.width * layer.anchorPoint.x, y: bounds.size.height * layer.anchorPoint.y)
+        let newPosition = CGPoint(x: bounds.size.width * newAnchorPoint.x, y: bounds.size.height * newAnchorPoint.y)
+        layer.anchorPoint = newAnchorPoint
+        layer.position = CGPoint(x: layer.position.x - oldPosition.x + newPosition.x, y: layer.position.y - oldPosition.y + newPosition.y)
         
+        removeAnimations()
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
+    }
+    
+    
+    //MARK: - Animations
+    
+    ///Animates the card when the user swipes up.
+    ///All animations are determined based on the default card position (before swipe) and the distance the user swiped up
+    private func animateSwipeUp(panGestureTranslation: CGPoint) {
+        resetBottomCardViewPosition()
+        resetMainCardViewPosition()
+        
+        let rotationStrenght = -min(panGestureTranslation.y / 360, SwipeableCardView.maximumRotation)
+        let rotationAngle = rotationStrenght * SwipeableCardView.maximumRotation
+        
+        let xTranslation = max(panGestureTranslation.y / 4, -panGestureTranslation.y / 4)
+        let yTranslation = panGestureTranslation.y * 1.5
+        
+        var transform = CATransform3DIdentity
+        transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
+        transform = CATransform3DTranslate(transform, xTranslation, yTranslation, 0)
+        
+        layer.transform = transform
+    }
+    
+    ///Animates the card when the user swipes down.
+    ///All animations are determined based on the default card position (before swipe) and the distance the user swiped down.
+    ///For a swipe down animation, the top and bottom cards will have different animations
+    private func animateSwipeDown(panGestureTranslation: CGPoint) {
+        resetCardViewPosition()
+        
+        animateBottomCard(panGestureTranslation: panGestureTranslation)
+        animateMainCard(panGestureTranslation: panGestureTranslation)
+    }
+    
+    private func animateBottomCard(panGestureTranslation: CGPoint) {
+        let rotationStrenght = -min(panGestureTranslation.y / 360, SwipeableCardView.maximumRotation)
+        let rotationAngle = rotationStrenght * SwipeableCardView.maximumRotation
+        
+        let yTranslation = panGestureTranslation.y
+        
+        var transform = CATransform3DIdentity
+        transform = CATransform3DTranslate(transform, 0, yTranslation, 0)
+        transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
+        
+        bottomCard.layer.transform = transform
+    }
+    
+    private func animateMainCard(panGestureTranslation: CGPoint) {
+        let rotationStrenght = -panGestureTranslation.y / 180
+        let rotationAngle = rotationStrenght * SwipeableCardView.maximumRotation
+        
+        let xTranslation = -max(panGestureTranslation.y, -panGestureTranslation.y) * 1.5
+        let yTranslation = -panGestureTranslation.y
+        
+        var transform = CATransform3DIdentity
+        transform = CATransform3DTranslate(transform, xTranslation, yTranslation, 0)
+        transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
+        
+        mainCard.layer.transform = transform
+    }
+    
+    private func endedPanAnimation(panGestureTranslation: CGPoint) {
+        //if the swipe distance is longer than third of the card height, the swipe will be considered a complete action
         if abs(panGestureTranslation.y) > self.frame.height * 0.3 {
             UIView.animate(withDuration: 0.15, animations: {
                 self.alpha = 0.4
@@ -181,11 +188,9 @@ class SwipeableCardView: UIView {
             return
         }
         
-        
-        //if not complete
+        //The swipe action is not complete and the card will revert to the default position
         resetCardViewPosition()
         resetBottomCardViewPosition()
-        resetCardViewAlpha()
         resetMainCardViewPosition()
     }
     
@@ -207,14 +212,6 @@ class SwipeableCardView: UIView {
         })
     }
     
-    private func resetCardViewAlpha() {
-        UIView.animateKeyframes(withDuration: SwipeableCardView.cardViewResetAnimationDuration, delay: 0.0, options: .allowUserInteraction, animations: {
-            self.alpha = 1.0
-        }, completion: { _ in
-            self.alpha = 1.0
-        })
-    }
-    
     private func resetCardViewPosition() {
         //        self.alpha = 1.0
         UIView.animateKeyframes(withDuration: SwipeableCardView.cardViewResetAnimationDuration, delay: 0.0, options: .allowUserInteraction, animations: {
@@ -226,12 +223,6 @@ class SwipeableCardView: UIView {
     
     private func removeAnimations() {
         self.layer.removeAllAnimations()
-    }
-    
-    // MARK: - Tap Gesture Recognizer
-    
-    @objc private func tapRecognized(_ recognizer: UITapGestureRecognizer) {
-        self.containerDelegate?.didTap(view: self)
     }
     
 }
